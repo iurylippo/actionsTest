@@ -11,4 +11,3 @@ jobs:
         run: |
           php -v
           composer -v
-          mysql -v
