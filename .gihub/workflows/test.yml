@@ -1,0 +1,14 @@
+name: testing actions
+on: push
+
+jobs:
+  runs-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello actions!"
+      - name: multiline string
+        run: |
+          php -v
+          composer -v
+          mysql -v
