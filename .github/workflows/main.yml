@@ -97,5 +97,7 @@ jobs:
         run: |
           composer global require "squizlabs/php_codesniffer=*"
       - name: Runs PHPCS Rules
-        run: phpcs --version
+        run: |
+          $(composer global config bin-dir --absolute)
+          phpcs --version
 
