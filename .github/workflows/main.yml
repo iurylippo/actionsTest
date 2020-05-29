@@ -67,7 +67,6 @@ jobs:
   #         DB_PORT: ${{ job.services.mysql.ports['3306'] }}
   runs_code_standard:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
