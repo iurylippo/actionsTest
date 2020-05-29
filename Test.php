@@ -6,7 +6,6 @@ class Test{
 
   function test($t)
   {
-    
+
   }
-  
 }
