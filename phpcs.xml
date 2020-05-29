@@ -56,5 +56,5 @@
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
     <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
 
-    <rule ref="PSR12"/>
+    <!-- <rule ref="PSR12"/> -->
 </ruleset>
