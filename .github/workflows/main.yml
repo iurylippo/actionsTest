@@ -1,9 +1,6 @@
 name: Fastmanager CI
 
 on:
-  push:
-    branches:
-      - 'feature/*'
   pull_request:
     branches:
       - master
@@ -74,6 +71,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: PHPCS check
+        uses: chekalsky/phpcs-action@v1
       # - name: Get composer cache directory
       #   id: composer-cache
       #   run: |
@@ -87,16 +86,16 @@ jobs:
       #     restore-keys: ${{ runner.os }}-composer-
       # - name: Composer runs Dump autoload
       #   run: composer dump-autoload
-      - name: Setup PHP, with composer and extensions
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '7.4'
-          extensions: mbstring, dom, fileinfo, mysql, php-zip
-          coverage: xdebug #optional
-          tools: composer, phpcs
+      # - name: Setup PHP, with composer and extensions
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: '7.4'
+      #     extensions: mbstring, dom, fileinfo, mysql, php-zip
+      #     coverage: xdebug #optional
+      #     tools: composer, phpcs
       # - name: Installing PHPCS
       #   run: |
       #     composer global require "squizlabs/php_codesniffer=*"
-      - name: Runs PHPCS Rules
-        run: phpcs
+      # - name: Runs PHPCS Rules
+      #   run: phpcs
 # export PATH="$PATH:$HOME/.composer/vendor/bin"
