@@ -96,7 +96,6 @@ jobs:
       - name: Installing PHPCS
         run: |
           composer global require "squizlabs/php_codesniffer=*"
-          which phpcs
       - name: Runs PHPCS Rules
         run: phpcs
 
