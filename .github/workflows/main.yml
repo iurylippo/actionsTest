@@ -72,12 +72,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      # - name: Setup PHP, with composer and extensions
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: '7.4'
-      #     extensions: mbstring, dom, fileinfo, mysql, php-zip
-      #     coverage: xdebug #optional
       - name: Checkout
         uses: actions/checkout@v2
       # - name: Get composer cache directory
@@ -93,11 +87,17 @@ jobs:
       #     restore-keys: ${{ runner.os }}-composer-
       # - name: Composer runs Dump autoload
       #   run: composer dump-autoload
-      - name: Installing PHPCS
-        run: |
-          composer global require "squizlabs/php_codesniffer=*"
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: mbstring, dom, fileinfo, mysql, php-zip
+          coverage: xdebug #optional
+          tools: composer, phpcs
+      # - name: Installing PHPCS
+      #   run: |
+      #     composer global require "squizlabs/php_codesniffer=*"
       - name: Runs PHPCS Rules
         run: |
-          export PATH="$PATH:$HOME/.composer/vendor/bin"
           phpcs --version
-
+# export PATH="$PATH:$HOME/.composer/vendor/bin"
