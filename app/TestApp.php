@@ -2,7 +2,8 @@
 
 namespace App;
 
-class TestApp {
+class TestApp
+{
     public function test($t)
     {
         $test = $t;
