@@ -80,19 +80,19 @@ jobs:
       #     coverage: xdebug #optional
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Get composer cache directory
-        id: composer-cache
-        run: |
-          composer config cache-files-dir
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - name: Cache composer dependencies
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-      - name: Composer runs Dump autoload
-        run: composer dump-autoload
+      # - name: Get composer cache directory
+      #   id: composer-cache
+      #   run: |
+      #     composer config cache-files-dir
+      #     echo "::set-output name=dir::$(composer config cache-files-dir)"
+      # - name: Cache composer dependencies
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ${{ steps.composer-cache.outputs.dir }}
+      #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      #     restore-keys: ${{ runner.os }}-composer-
+      # - name: Composer runs Dump autoload
+      #   run: composer dump-autoload
       - name: Installing PHPCS
         run: |
           composer global require "squizlabs/php_codesniffer=*"
