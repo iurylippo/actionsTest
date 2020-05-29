@@ -98,6 +98,6 @@ jobs:
           composer global require "squizlabs/php_codesniffer=*"
       - name: Runs PHPCS Rules
         run: |
-          $(composer global config bin-dir --absolute)
-          phpcs --version
+          cd vendor/
+          ls -a
 
