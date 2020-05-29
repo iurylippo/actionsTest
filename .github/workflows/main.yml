@@ -98,5 +98,5 @@ jobs:
           composer global require "squizlabs/php_codesniffer=*"
       - name: Runs PHPCS Rules
         run: |
-          ls -a
+          php-codesniffer
 
